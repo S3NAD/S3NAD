@@ -1,0 +1,38 @@
+import discord
+from discord.ext import commands
+
+# Replace 'YOUR_BOT_TOKEN' with your actual bot token obtained from the Discord Developer Portal
+BOT_TOKEN = 'YOUR_BOT_TOKEN'
+
+# Replace 'AUTHORIZED_ROLE_NAME' with the name of the role that is authorized to use the global ban command
+AUTHORIZED_ROLE_NAME = 'Moderator'
+
+# Define the command prefix (e.g., !, $, %, etc.)
+COMMAND_PREFIX = '*'
+
+# Create an instance of the bot
+bot = commands.Bot(command_prefix=COMMAND_PREFIX)
+
+# Function to check if a user has the authorized role
+def has_authorized_role(ctx):
+    role = discord.utils.get(ctx.guild.roles, name=AUTHORIZED_ROLE_NAME)
+    return role in ctx.author.roles
+
+# Event: Bot is ready and connected to Discord
+@bot.event
+async def on_ready():
+    print(f'Logged in as {bot.user.name}')
+    print('------')
+
+# Command: Global ban
+@bot.command(name='globalban')
+@commands.check(has_authorized_role)  # Check if the user has the authorized role
+async def global_ban(ctx, member: discord.Member, *, reason=None):
+    # Implement global ban actions here
+    # For example, you can add the user to a global ban list and remove them from all servers the bot is in.
+
+    # Send a response to the user
+    await ctx.send(f'{member.mention} has been globally banned for the reason: {reason}')
+
+# Run the bot with the provided token
+bot.run(BOT_TOKEN)
