@@ -1,11 +1,11 @@
 import discord
 from discord.ext import commands
 
-# Replace 'YOUR_BOT_TOKEN' with your actual bot token obtained from the Discord Developer Portal
-BOT_TOKEN = 'YOUR_BOT_TOKEN'
+# Replace 'MTEzMzY0NTYxNjk1ODkzOTE0Ng.G-qGpU.YT_yZA-zSwxiY420Hh9KF6mcm8tfCkN-tGvoJs' with your actual bot token obtained from the Discord Developer Portal
+BOT_TOKEN = 'MTEzMzY0NTYxNjk1ODkzOTE0Ng.G-qGpU.YT_yZA-zSwxiY420Hh9KF6mcm8tfCkN-tGvoJs'
 
 # Replace 'AUTHORIZED_ROLE_NAME' with the name of the role that is authorized to use the global ban command
-AUTHORIZED_ROLE_NAME = 'Moderator'
+AUTHORIZED_ROLE_NAME = '⚠️ Admin Perms ⚠️'
 
 # Define the command prefix (e.g., !, $, %, etc.)
 COMMAND_PREFIX = '*'
@@ -35,4 +35,4 @@ async def global_ban(ctx, member: discord.Member, *, reason=None):
     await ctx.send(f'{member.mention} has been globally banned for the reason: {reason}')
 
 # Run the bot with the provided token
-bot.run(BOT_TOKEN)
+bot.run(MTEzMzY0NTYxNjk1ODkzOTE0Ng.G-qGpU.YT_yZA-zSwxiY420Hh9KF6mcm8tfCkN-tGvoJs)
